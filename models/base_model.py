@@ -6,6 +6,7 @@
 
 import uuid
 from datetime import datetime
+from . import storage
 
 
 class BaseModel:
@@ -15,9 +16,6 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         timestr = "%Y-%m-%dT%H:%M:%S.%f"
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
         if len(kwargs) > 0:
             for key, value in kwargs.items():
                 if key == 'created_at':
@@ -28,6 +26,11 @@ class BaseModel:
                     pass
                 else:
                     setattr(self, key, value)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            storage.new(self.to_dict())
 
     def __str__(self):
         name = type(self).__name__
