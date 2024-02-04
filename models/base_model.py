@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-
+module containing BaseModel class, which all other classes in the package
+inherit from - provides basic identifying information regarding an instance
 """
 
 import uuid
@@ -11,7 +12,14 @@ from . import storage
 
 class BaseModel:
     """
+    BaseModel class, provides identification attributes to inheriting
+    classes
 
+    Attributes:
+        id: string - a unique hash that allows identification of an instance
+        created_at: string - the timestamp of an instance's instantiation
+        updated_at: string - a timestamp, updated whenever the instance's
+        attributes recieve a change
     """
 
     def __init__(self, *args, **kwargs):
@@ -49,3 +57,5 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.now()
+        storage.new(self.to_dict())
+        storage.save()

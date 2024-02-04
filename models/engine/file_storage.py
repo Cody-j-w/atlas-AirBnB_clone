@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 """
+Module containing the FileStorage class
 """
 import json
 from os.path import isfile
@@ -8,6 +9,12 @@ from os.path import isfile
 
 class FileStorage:
     """
+    FileStorage class, provides a system of storing data in a JSON file
+
+    Attributes:
+        __objects: list - the list of objects currently stored in a FileStorage
+        instance
+        __file_path: string - the path to the longterm storage file
     """
     __objects = {}
     __file_path = "storage.json"
