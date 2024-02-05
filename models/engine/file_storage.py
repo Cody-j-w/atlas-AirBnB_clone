@@ -27,7 +27,7 @@ class FileStorage:
             key = "{0}.{1}".format(obj['__class__'], obj['id'])
             self.__objects.update({key: obj})
         else:
-            print("type of object: "+type(obj)+"\nobject def: "+obj)
+            print("type of object: "+str(type(obj)))
 
     def save(self):
         with open(self.__file_path, 'w') as file:
