@@ -23,12 +23,8 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        if type(obj) is not dict:
-            obj_dict = obj.to_dict()
-        else:
-            obj_dict = obj
-        key = "{0}.{1}".format(obj_dict['__class__'], obj_dict['id'])
-        self.__objects.update({key: obj_dict})
+        key = "{0}.{1}".format(type(obj).__name__, obj.id)
+        self.__objects.update({key: obj})
 
 
 
