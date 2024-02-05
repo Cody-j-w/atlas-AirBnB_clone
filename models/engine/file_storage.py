@@ -23,11 +23,13 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        if type(obj) is dict:
-            key = "{0}.{1}".format(obj['__class__'], obj['id'])
-            self.__objects.update({key: obj})
-        else:
-            print("type of object: "+str(type(obj)))
+        if type(obj) is not dict:
+            obj_dict = obj.to_dict()
+        obj_dict = obj
+        key = "{0}.{1}".format(obj_dict['__class__'], obj_dict['id'])
+        self.__objects.update({key: obj_dict})
+
+
 
     def save(self):
         with open(self.__file_path, 'w') as file:
