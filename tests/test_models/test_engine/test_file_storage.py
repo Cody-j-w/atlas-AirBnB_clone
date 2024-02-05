@@ -15,9 +15,7 @@ class TestFileStorageMethods(unittest.TestCase):
         self.assertEqual(type(test_storage._FileStorage__objects), dict)
 
     def test_all_method(self):
-        test_dict = test_storage._FileStorage__objects
-        self.assertEqual(type(test_storage.all()), dict)
-        self.assertEqual(test_storage.all(), test_dict)
+        self.assertEqual(test_storage.all(), test_storage._FileStorage__objects)
 
 
     def test_new_method(self):
