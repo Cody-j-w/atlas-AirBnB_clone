@@ -5,7 +5,7 @@ A module containing the User class
 """
 
 from .base_model import BaseModel
-from . import storage
+
 
 
 class User(BaseModel):

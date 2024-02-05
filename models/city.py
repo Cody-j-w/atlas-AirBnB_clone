@@ -5,7 +5,7 @@ Module containing the City class
 """
 
 from .base_model import BaseModel
-from . import storage
+
 
 
 class City(BaseModel):

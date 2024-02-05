@@ -4,7 +4,7 @@
 Module containing Place class, incorporating data from all other classes
 """
 from .base_model import BaseModel
-from . import storage
+
 
 
 class Place(BaseModel):
