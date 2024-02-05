@@ -1,12 +1,20 @@
 #!/usr/bin/python3
 
 """
+Module containing the console shell for HBNB project
 """
 import cmd
 import models
 
 
 class HBNBCommand(cmd.Cmd):
+    """
+    HBNB console
+
+    Attributes:
+        intro: string - introductory message displayed when console starts
+        prompt: string - string prompting new input
+    """
     intro = "Welcome to the HBNB console. Type help or ? to list commands.\n"
     prompt = "(hbnb)"
 
