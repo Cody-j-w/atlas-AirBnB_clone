@@ -40,7 +40,7 @@ class FileStorage:
         for key, value in self.__objects.items():
             obj_dict[key] = self.__objects[key].to_dict()
         with open(self.__file_path, 'w') as file:
-            file.write(json.dumps(self.__objects))
+            file.write(json.dumps(obj_dict))
 
     def reload(self):
         if path.isfile(self.__file_path):
