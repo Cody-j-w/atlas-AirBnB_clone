@@ -4,7 +4,7 @@
 Module containing the FileStorage class
 """
 import json
-from os.path import isfile
+import os.path as path
 
 
 class FileStorage:
@@ -23,14 +23,16 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        key = "{0}.{1}".format(obj['__class__'], obj['id'])
-        self.__objects.update({key: obj})
+        # key = "{0}.{1}".format(obj['__class__'], obj['id'])
+        # self.__objects.update({key: obj})
+        print("type of object: {0}\nstring of object: {1}".format(type(obj), obj))
 
     def save(self):
         with open(self.__file_path, 'w') as file:
             file.write(json.dumps(self.__objects))
 
     def reload(self):
-        if isfile(self.__file_path):
+        if path.isfile(self.__file_path):
             with open(self.__file_path, 'r') as file:
-                self.__objects = json.loads(file.read())
+                if path.getsize(self.__file_path) > 0:
+                    self.__objects = json.loads(file.read())
