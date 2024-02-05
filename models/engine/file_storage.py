@@ -5,6 +5,13 @@ Module containing the FileStorage class
 """
 import json
 import os.path as path
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class FileStorage:
@@ -29,11 +36,15 @@ class FileStorage:
 
 
     def save(self):
+        obj_dict = dict()
+        for key, value in self.__objects.items():
+            obj_dict[key] = self.__objects[key].to_dict()
         with open(self.__file_path, 'w') as file:
             file.write(json.dumps(self.__objects))
 
     def reload(self):
         if path.isfile(self.__file_path):
             with open(self.__file_path, 'r') as file:
-                if path.getsize(self.__file_path) > 0:
-                    self.__objects = json.loads(file.read())
+                content = json.loads(file.read())
+            for key, value in content.items():
+                self.__objects[key] = eval(key.split(".")[0])(**value)
