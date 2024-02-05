@@ -5,7 +5,7 @@ Module containing the Amenity class
 """
 
 from .base_model import BaseModel
-from . import storage
+
 
 
 class Amenity(BaseModel):
