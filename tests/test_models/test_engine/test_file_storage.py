@@ -16,7 +16,9 @@ class TestFileStorageMethods(unittest.TestCase):
 
     def test_all_method(self):
         test_dict = test_storage._FileStorage__objects
+        self.assertEqual(type(test_storage.all()), dict)
         self.assertEqual(test_storage.all(), test_dict)
+
 
     def test_new_method(self):
         b1 = models.base_model.BaseModel()
@@ -26,6 +28,7 @@ class TestFileStorageMethods(unittest.TestCase):
     def test_save_and_reload_method(self):
         test_dict = test_storage._FileStorage__objects
         test_storage.save()
+
         test_storage.reload()
         self.assertEqual(test_dict, test_storage._FileStorage__objects)
         
