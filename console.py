@@ -36,6 +36,12 @@ class HBNBCommand(cmd.Cmd):
             return True
         pass
 
+    def emptyline(self):
+        """
+        handle empty lines
+        """
+        pass
+
     def do_create(self, args):
         """
         command input: create <class name>
