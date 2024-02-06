@@ -93,6 +93,11 @@ class HBNBCommand(cmd.Cmd):
                     print(storage.all()[key])
 
     def do_all(self, args):
+        """
+        command input: all <class name (optional)>
+        Shows all instances of the specified class, or all instances of any
+        class if the class name argument is not provided
+        """
         flag = "all"
         if args != "" and args != " " and args is not None:
             flag = args.split(" ")[0]
@@ -109,6 +114,10 @@ class HBNBCommand(cmd.Cmd):
                 print(storage.all()[key].to_dict())
 
     def do_destroy(self, args):
+        """
+        command input: destroy <class name> <instance id>
+        Delete the specified instance
+        """
         if args == "" or args == " " or args is None:
             print("** class name missing **")
         else:
@@ -126,6 +135,10 @@ class HBNBCommand(cmd.Cmd):
                     storage.save()
 
     def do_update(self, args):
+        """
+        command input: update <class name> <inst id> <attr name> <attr value>
+        Update the value of the specified attribute with the provided value
+        """
         if args == "" or args == " " or args is None:
             print("** class name missing **")
         else:
