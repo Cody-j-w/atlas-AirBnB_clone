@@ -26,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
         if not sys.__stdin__.isatty():
             print("(hbnb)")
 
-    def postcmd(self):
+    def postcmd(self, stop, line):
         """
         post-command override
         """
