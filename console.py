@@ -17,7 +17,7 @@ class HBNBCommand(cmd.Cmd):
         prompt: string - string prompting new input
     """
     intro = "Welcome to the HBNB console. Type help or ? to list commands.\n"
-    prompt = "(hbnb)"
+    prompt = "(hbnb)" if sys.__stdin__.isatty() else ""
 
     def preloop(self):
         if not sys.__stdin__.isatty():
