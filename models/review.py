@@ -17,5 +17,5 @@ class Review(BaseModel):
         text: string - the body of the Review
     """
     text = ""
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
