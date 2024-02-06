@@ -17,15 +17,21 @@ class HBNBCommand(cmd.Cmd):
         prompt: string - string prompting new input
     """
     intro = "Welcome to the HBNB console. Type help or ? to list commands.\n"
-    prompt = "(hbnb)"
+    prompt = "(hbnb)" if sys.__stdin__.isatty() else ""
 
     def preloop(self):
+        """
+        preloop handler override
+        """
         if not sys.__stdin__.isatty():
             print("(hbnb)")
 
     def postcmd(self):
+        """
+        post-command override
+        """
         if not sys.__stdin__.isatty():
-            print("(hbnb)")
+            print("(hbnb)", end = '')
 
     def default(self, arg):
         """
@@ -34,6 +40,12 @@ class HBNBCommand(cmd.Cmd):
         if arg == "EOF":
             print('\r')
             return True
+        pass
+
+    def emptyline(self):
+        """
+        handle empty lines
+        """
         pass
 
     def do_create(self, args):
