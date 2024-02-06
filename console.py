@@ -5,6 +5,7 @@ Module containing the console shell for HBNB project
 """
 import cmd
 import models
+import sys
 
 
 class HBNBCommand(cmd.Cmd):
@@ -17,6 +18,14 @@ class HBNBCommand(cmd.Cmd):
     """
     intro = "Welcome to the HBNB console. Type help or ? to list commands.\n"
     prompt = "(hbnb)"
+
+    def preloop(self):
+        if not sys.__stdin__.isatty():
+            print("(hbnb)")
+
+    def postcmd(self):
+        if not sys.__stdin__.isatty():
+            print("(hbnb)")
 
     def default(self, arg):
         """
