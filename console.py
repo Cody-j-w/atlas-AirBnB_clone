@@ -20,12 +20,18 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb)" if sys.__stdin__.isatty() else ""
 
     def preloop(self):
+        """
+        preloop handler override
+        """
         if not sys.__stdin__.isatty():
             print("(hbnb)")
 
     def postcmd(self):
+        """
+        post-command override
+        """
         if not sys.__stdin__.isatty():
-            print("(hbnb)")
+            print("(hbnb)", end = '')
 
     def default(self, arg):
         """
