@@ -26,10 +26,12 @@ or all instances of any class, if no class name is provided
 ![all command example, with User specification provided](https://github.com/Cody-j-w/atlas-AirBnB_clone/blob/main/example_images/all_example.PNG)
 
 `destroy <class name> <instance id>` removes the specified instance
+
 ![destroy command example](https://github.com/Cody-j-w/atlas-AirBnB_clone/blob/main/example_images/example_destroy.PNG)
 
 `update <class name> <instance id> <attribute> <value>` updates the specified
 attribute of the specified instance with the value provided
+
 ![update command example](https://github.com/Cody-j-w/atlas-AirBnB_clone/blob/main/example_images/update_example.PNG)
 
 `quit` quits the console. ctrl+D will also work.
