@@ -7,7 +7,6 @@ Module containing the City class
 from .base_model import BaseModel
 
 
-
 class City(BaseModel):
     """
     City class, inheriting from BaseModel
