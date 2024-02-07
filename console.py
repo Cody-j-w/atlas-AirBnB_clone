@@ -7,7 +7,7 @@ import cmd
 import models
 import sys
 classes = {'BaseModel': models.base_model.BaseModel, 'User': models.user.User,
-            'State': models.state.State, 'city': models.city.City,
+            'State': models.state.State, 'City': models.city.City,
             'Amenity': models.amenity.Amenity, 'Place': models.place.Place,
             'Review': models.review.Review}
 storage = models.storage
