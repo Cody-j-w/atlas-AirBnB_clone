@@ -5,14 +5,15 @@ import time
 import json
 from datetime import datetime
 import models
-from ...test_models import test_storage
 
 class TestFileStorageMethods(unittest.TestCase):
     def test_file_path(self):
-        self.assertEqual(test_storage._FileStorage__file_path, "storage.json")
+        storage = models.engine.file_storage.FileStorage()
+        self.assertEqual(storage._FileStorage__file_path, "storage.json")
 
     def test_object_dict(self):
-        self.assertEqual(type(test_storage._FileStorage__objects), dict)
+        storage = models.engine.file_storage.FileStorage()
+        self.assertEqual(type(storage._FileStorage__objects), dict)
 
     def test_save_reload(self):
         test_store = models.engine.file_storage.FileStorage()
