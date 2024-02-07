@@ -124,15 +124,15 @@ class HBNBCommand(cmd.Cmd):
             args_list = args.split(" ")
             if args_list[0] not in classes:
                 print("** class doesn't exist **")
-                if len(args_list) < 2:
-                    print("** instance id missing **")
+            elif len(args_list) < 2:
+                print("** instance id missing **")
+            else:
+                key = "{}.{}".format(args_list[0], args_list[1])
+                if key not in storage.all():
+                    print("** no instance found **")
                 else:
-                    key = "{}.{}".format(args_list[0], args_list[1])
-                    if key not in storage.all():
-                        print("** no instance found **")
-                    else:
-                        del storage.all()[key]
-                        storage.save()
+                    del storage.all()[key]
+                    storage.save()
 
     def do_update(self, args):
         """
@@ -145,29 +145,29 @@ class HBNBCommand(cmd.Cmd):
             args_list = args.split(" ")
             if args_list[0] not in classes:
                 print("** class doesn't exist **")
-                if len(args_list) < 2:
-                    print("** instance id missing **")
+            elif len(args_list) < 2:
+                print("** instance id missing **")
+            else:
+                key = "{}.{}".format(args_list[0], args_list[1])
+                if key not in storage.all():
+                    print("** no instance found **")
                 else:
-                    key = "{}.{}".format(args_list[0], args_list[1])
-                    if key not in storage.all():
-                        print("** no instance found **")
+                    obj = storage.all()[key]
+                    if len(args_list) < 3:
+                        print("** attribute name missing **")
                     else:
-                        obj = storage.all()[key]
-                        if len(args_list) < 3:
-                            print("** attribute name missing **")
+                        attr_name = args_list[2]
+                        if len(args_list) < 4:
+                            print("** value missing **")
                         else:
-                            attr_name = args_list[2]
-                            if len(args_list) < 4:
-                                print("** value missing **")
+                            attr_val = args_list[3]
+                            if hasattr(storage.all()[key], attr_name):
+                                attrtype = type(getattr(obj, attr_name))
+                                value = attrtype(attr_val)
+                                setattr(obj, attr_name, value)
+                                obj.save()
                             else:
-                                attr_val = args_list[3]
-                                if hasattr(storage.all()[key], attr_name):
-                                    attrtype = type(getattr(obj, attr_name))
-                                    value = attrtype(attr_val)
-                                    setattr(obj, attr_name, value)
-                                    obj.save()
-                                else:
-                                    print("** attribute not found")
+                                print("** attribute not found")
 
 
     def do_quit(self, arg):
