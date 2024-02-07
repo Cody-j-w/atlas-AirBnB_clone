@@ -83,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
             args_list = args.split(" ")
             if args_list[0] not in classes:
                 print("** class doesn't exist **")
-            if len(args_list) < 2:
+            elif len(args_list) < 2:
                 print("** instance id missing **")
             else:
                 key = "{}.{}".format(args_list[0], args_list[1])
