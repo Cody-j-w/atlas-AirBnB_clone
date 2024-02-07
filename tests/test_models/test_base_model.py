@@ -27,3 +27,6 @@ class TestBaseMethods(unittest.TestCase):
     def test_created_at(self):
         b1 = BaseModel()
         self.assertEqual(b1.created_at, datetime.now())
+
+if __name__ == '__main__':
+    unittest.main()
