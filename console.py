@@ -164,10 +164,8 @@ class HBNBCommand(cmd.Cmd):
                             if hasattr(storage.all()[key], attr_name):
                                 attrtype = type(getattr(obj, attr_name))
                                 value = attrtype(attr_val)
-                                setattr(obj, attr_name, value)
-                                obj.save()
-                            else:
-                                print("** attribute not found")
+                            setattr(obj, attr_name, value)
+                            obj.save()
 
 
     def do_quit(self, arg):
