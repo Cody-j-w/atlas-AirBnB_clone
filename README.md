@@ -30,3 +30,6 @@ attribute of the specified instance with the value provided
 
 These commands can also be viewed in the console by running `help <cmd name>`
 and `help` with no arguments will provide a list of all usable commands
+
+
+![console behavior flowchart](https://github.com/Cody-j-w/atlas-AirBnB_clone/blob/main/Untitled%20Diagram.png)
