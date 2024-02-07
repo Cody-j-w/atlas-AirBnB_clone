@@ -7,11 +7,10 @@ import cmd
 import models
 import sys
 classes = {'BaseModel': models.base_model.BaseModel, 'User': models.user.User,
-            'State': models.state.State, 'City': models.city.City,
-            'Amenity': models.amenity.Amenity, 'Place': models.place.Place,
-            'Review': models.review.Review}
+           'State': models.state.State, 'City': models.city.City,
+           'Amenity': models.amenity.Amenity, 'Place': models.place.Place,
+           'Review': models.review.Review}
 storage = models.storage
-
 
 
 class HBNBCommand(cmd.Cmd):
@@ -167,15 +166,12 @@ class HBNBCommand(cmd.Cmd):
                             setattr(obj, attr_name, attr_val)
                             obj.save()
 
-
     def do_quit(self, arg):
         """
         command input: quit
         terminates the current session and closes the HBNB console
         """
         return True
-
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
