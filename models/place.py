@@ -6,7 +6,6 @@ Module containing Place class, incorporating data from all other classes
 from .base_model import BaseModel
 
 
-
 class Place(BaseModel):
     """
     Place class, inheriting from BaseModel and utilizing sibling classes

@@ -7,7 +7,6 @@ Module containing the Amenity class
 from .base_model import BaseModel
 
 
-
 class Amenity(BaseModel):
     """
     Amenity class, inheriting from BaseModel
@@ -17,5 +16,7 @@ class Amenity(BaseModel):
     """
 
     name = ""
+
     def __init__(self, *args, **kwargs):
+
         super().__init__(*args, **kwargs)

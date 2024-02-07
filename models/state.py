@@ -7,7 +7,6 @@ Module containing the State class
 from .base_model import BaseModel
 
 
-
 class State(BaseModel):
     """
     State class, inheriting from BaseModel
@@ -17,5 +16,7 @@ class State(BaseModel):
     """
 
     name = ""
+
     def __init__(self, *args, **kwargs):
+
         super().__init__(*args, **kwargs)
