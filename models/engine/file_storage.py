@@ -33,8 +33,6 @@ class FileStorage:
         key = "{0}.{1}".format(type(obj).__name__, obj.id)
         self.__objects.update({key: obj})
 
-
-
     def save(self):
         obj_dict = dict()
         for key, value in self.__objects.items():
