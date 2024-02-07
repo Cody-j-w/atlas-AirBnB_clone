@@ -163,8 +163,8 @@ class HBNBCommand(cmd.Cmd):
                             attr_val = args_list[3]
                             if hasattr(storage.all()[key], attr_name):
                                 attrtype = type(getattr(obj, attr_name))
-                                value = attrtype(attr_val)
-                            setattr(obj, attr_name, value)
+                                attr_val = attrtype(attr_val)
+                            setattr(obj, attr_name, attr_val)
                             obj.save()
 
 
