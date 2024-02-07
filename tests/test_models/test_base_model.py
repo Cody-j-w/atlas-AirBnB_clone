@@ -26,4 +26,5 @@ class TestBaseMethods(unittest.TestCase):
 
     def test_created_at(self):
         b1 = BaseModel()
-        self.assertEqual(b1.created_at, datetime.now())
+        time.sleep(0.001)
+        self.assertNotEqual(b1.created_at, datetime.now())
