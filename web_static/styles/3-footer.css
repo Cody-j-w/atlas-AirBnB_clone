@@ -2,9 +2,16 @@ footer {
     background-color: #ffffff;
     height: 60px;
     width: 100%;
-    position: relative;
     bottom: 0;
     border-top: 1px solid #CCCCCC;
+}
+
+footer.footer-abs {
+    position: absolute;
+}
+
+footer.footer-rel {
+    position: relative;
 }
 
 footer p {
